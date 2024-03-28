@@ -5,18 +5,22 @@ const Form = () => {
 	const [name, setName] = useState('')
 	const [nameTouched, setNameTouched] = useState(false)
 
+
 	// Validate values
 	// Name: cannot be empty (string length > 0)
 	const nameIsValid = name.length > 0
+	const nameErrorMessage = nameIsValid ? '' : 'Please enter your name.'
+
 
 	// CSS variables
 	let nameErrorClass = 'error ', nameClass = ''
 	if( !nameTouched ) {
 		nameErrorClass += 'hidden'
 	} else {
-		nameErrorClass += nameIsValid ? 'valid' : 'invalid'
+		nameErrorClass += nameIsValid ? 'hidden' : 'invalid'
 		nameClass += nameIsValid ? 'valid' : 'invalid'
 	}
+
 
 	return (
 		<div className="form">
@@ -30,7 +34,7 @@ const Form = () => {
 					onBlur={() => setNameTouched(true)}
 					type="text"
 					/>
-				<p className={nameErrorClass}> Error message sometimes </p>
+				<p className={nameErrorClass}> {nameErrorMessage} &nbsp; </p>
 			</section>
 
 			<section className="form-item">

@@ -5,9 +5,7 @@
 h1 {
 	margin: 0;
 }
-.form {
-
-}
+/* .form {} */
 
 .form-item {
 	display: flex;
@@ -27,6 +25,8 @@ h1 {
 	cursor: pointer;
 }
 .form .error {
+	/* Två alternativ: 1) använda min-height, 2) använda ett osynligt tecken &nbsp; i p-taggen */
+	min-height: 1.5em;
 	color: rgb(213, 10, 10);
 }
 .form .error.hidden {
@@ -35,10 +35,22 @@ h1 {
 .form label {
 	font-weight: bold;
 }
-input.valid {
-	border-color: rgb(14, 96, 14);
+input {
+	padding: 0.3em;
 }
+input.valid {
+	box-shadow: 0 0 0.5em inset rgb(14, 96, 14);
+}
+/*
+TODO: make this work
+input.valid::after {
+	display: block;
+	position: relative;
+	left: -1em;
+	content: '🗸';
+} */
 input.invalid {
-	border-color: rgb(171, 31, 31);
+	box-shadow: 0 0 0.5em inset rgb(171, 31, 31);
+	/* ⚠️ */
 }
 
