@@ -29,6 +29,16 @@ h1 {
 .form .error {
 	color: rgb(213, 10, 10);
 }
+.form .error.hidden {
+	visibility: hidden;
+}
 .form label {
 	font-weight: bold;
 }
+input.valid {
+	border-color: rgb(14, 96, 14);
+}
+input.invalid {
+	border-color: rgb(171, 31, 31);
+}
+
