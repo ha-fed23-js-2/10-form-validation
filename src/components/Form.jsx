@@ -27,6 +27,7 @@ const Form = () => {
 
 			<section className="form-item">
 				<label> Name </label>
+				<div className={'input-container ' + nameClass}>
 				<input
 					className={nameClass}
 					value={name}
@@ -34,6 +35,7 @@ const Form = () => {
 					onBlur={() => setNameTouched(true)}
 					type="text"
 					/>
+				</div>
 				<p className={nameErrorClass}> {nameErrorMessage} &nbsp; </p>
 			</section>
 

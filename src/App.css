@@ -37,20 +37,30 @@ h1 {
 }
 input {
 	padding: 0.3em;
+	width: 100%;
 }
 input.valid {
 	box-shadow: 0 0 0.5em inset rgb(14, 96, 14);
 }
-/*
-TODO: make this work
-input.valid::after {
+
+.input-container { position: relative; }
+.input-container::after {
 	display: block;
-	position: relative;
-	left: -1em;
+	position: absolute;
+	width: 1em;
+	height: 1em;
+}
+.input-container.valid::after {
+	right: 0.2em;
+	top: 0.2em;
 	content: '🗸';
-} */
+}
+.input-container.invalid::after {
+	right: 0.6em;
+	top: 0em;
+	content: '⚠️';
+}
 input.invalid {
 	box-shadow: 0 0 0.5em inset rgb(171, 31, 31);
-	/* ⚠️ */
 }
 
