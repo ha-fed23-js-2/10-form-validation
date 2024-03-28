@@ -11,6 +11,8 @@ const Form = () => {
 	const nameIsValid = name.length > 0
 	const nameErrorMessage = nameIsValid ? '' : 'Please enter your name.'
 
+	const formIsValid = nameIsValid // TODO: add email...
+
 
 	// CSS variables
 	let nameErrorClass = 'error ', nameClass = ''
@@ -19,6 +21,17 @@ const Form = () => {
 	} else {
 		nameErrorClass += nameIsValid ? 'hidden' : 'invalid'
 		nameClass += nameIsValid ? 'valid' : 'invalid'
+	}
+
+
+	// Events
+	const handleSubmit = () => {
+		const formData = {
+			name,  // samma som "name: name"
+		}
+		console.log('Data from form: ', formData)
+		// Skicka datan dit den ska användas
+		// Lifting state, Zustand, eller skicka till ett API
 	}
 
 
@@ -45,7 +58,10 @@ const Form = () => {
 				<p className="error"> Error message sometimes </p>
 			</section>
 
-			<button className="form-btn"> Save </button>
+			<button className="form-btn"
+				disabled={!formIsValid}
+				onClick={handleSubmit}
+				> Register to newsletter </button>
 
 		</div>
 	)
